@@ -1,0 +1,42 @@
+---
+title: AI as an enabler for "MEU" - Maximum Enterprise Utilization  
+date: 2024-01-03
+description: A mental model to navigate the impact and value of AI in the enterprise.
+---
+
+If you spend enough time reading AI papers and articles, you might have run into the acronym "MFU": Maximum FLOPS Utilization. Each GPU has a theoretical FLOPs capacity, but we often only get 20-40% MFU due to issues like sub-optimal scheduling, memory bottlenecks, etc. (See our podcast episode with [Quentin Anthony of Eleuther AI](https://www.latent.space/p/transformers-math) for a deeper technical breakdown)
+
+You can calculate it with:
+
+$$MFU=\frac{\text{Actual FLOPs}}{\text{Theoretical Peak FLOPs}}$$
+
+Where
+
+$$\text{Theoretical Peak FLOPs} = (\text{Number of cores}) \times (\text{Clock speed in Hz}) \times (\text{FLOPs per cycle})$$
+
+With the rise of AI copilots and agents in the enterprise, more and more tech leaders should be using a similar framework: what is the "Maximum Enterprise Utilization" (MEU) of my company, and how can I adopt AI to improve it?
+
+$$MEU = \frac{\text{Total Productivity}}{\text{All Available Work}}$$
+
+The "All Available Work" for an enterprise is pretty self explanatory, it's all work tasks that need to be done in your company. 
+
+"Total Productivity" is the sum of all work throughput from all "Workers", which includes employees, contractors, and now AI agents: 
+
+$$\text{Total Productivity} = \sum_{i \in \text{Workers}} (\text{work hours}_i \times \text{productivity rate}_i)$$
+
+AI is the first technology in decades that can increase Total Productivity without requiring more work hours by humans. I'm guessin the average MEU for a company isn't much higher than 10-40% and it's been really hard to push that higher:
+- Adding more workers can lower productivity due to the communication complexity (see [Metcalfe's Law](https://en.wikipedia.org/wiki/Metcalfe%27s_law)) and is very expensive
+- Work hours and productivity rate are inversely correlated after a certain point, especially for jobs like software engineering.
+
+60-90% of enterprise productivity in the future will likely be delivered by AI:
+- For a similar work rate, productivity rate will increase by 10x by leveraging **synchronous** products. This includes things like ChatGPT, Github Copilot, Harvey, etc, which allow each worker to do their job more quickly and accurately. The downside of synchronous products is that they have work hours as a limiter of productivity: if the user isn't working, you're not delivering value.
+- As the cost of intelligence trends to zero ([sama's thread](https://x.com/sama/status/1436028668082462748?s=20)), the amount of total productivity in the enterprise will become very elastic, as you'll be able to add AI agents to your Workers pool to achieve specific tasks. These agents will be fully **asynchronous** and will work in parallel to humans with "human-on-the-loop" checkpoints. My partner Dan called this ["Services-as-Software"](https://dannguyenhuu.substack.com/p/a-new-frontier-service-as-software) . Companies in this space include [Dropzone AI](https://dropzone.ai), [Sweep AI](https://sweep.dev/), [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT), etc.
+
+If you're a founder looking to build a company in the AI space selling to enterprises, you should ask yourself some of these questions:
+- How is my product increasing productivity rate and how is it measured? (And [how should I price it?](https://dannguyenhuu.substack.com/p/the-price-is-ai-ght-a-short-discussion))
+- How much of my product should be synchronous vs asynchronous? 
+- What's the tradeoff between user feedback for accuracy vs autonomous actions for maximum productivity gains?
+- Am I making existing people more productive, or am I bringing net new abilities to the enterprise? (i.e. a security agent to a company that had no security team before)
+- Would the company's Available Work increase if they had higher productivity, and will that lead to more enterprise value for them? (i.e. a sales copilot which helps with higher quota achievement vs a sales agent who can create almost unlimited opportunities)
+
+Looking forward to reviewing this post at the end of 2024, which many are calling the year of "AI in production". 
