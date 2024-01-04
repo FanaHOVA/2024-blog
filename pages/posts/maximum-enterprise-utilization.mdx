@@ -8,27 +8,47 @@ If you spend enough time reading AI papers and articles, you might have run into
 
 You can calculate it with:
 
-$$MFU=\frac{\text{Actual FLOPs}}{\text{Theoretical Peak FLOPs}}$$
+
+$$
+
+MFU=\frac{\text{Actual FLOPs}}{\text{Theoretical Peak FLOPs}}
+
+$$
+
 
 Where
 
-$$\text{Theoretical Peak FLOPs} = (\text{Number of cores}) \times (\text{Clock speed in Hz}) \times (\text{FLOPs per cycle})$$
+$$
+
+\text{Theoretical Peak FLOPs} = (\text{Number of cores}) \times (\text{Clock speed in Hz}) \times (\text{FLOPs per cycle})
+
+$$
 
 With the rise of AI copilots and agents in the enterprise, more and more tech leaders should be using a similar framework: what is the "Maximum Enterprise Utilization" (MEU) of my company, and how can I adopt AI to improve it?
 
-$$MEU = \frac{\text{Total Productivity}}{\text{All Available Work}}$$
+$$
+
+MEU = \frac{\text{Total Productivity}}{\text{All Available Work}}
+
+$$
 
 The "All Available Work" for an enterprise is pretty self explanatory, it's all work tasks that need to be done in your company. 
 
 "Total Productivity" is the sum of all work throughput from all "Workers", which includes employees, contractors, and now AI agents: 
 
-$$\text{Total Productivity} = \sum_{i \in \text{Workers}} (\text{work hours}_i \times \text{productivity rate}_i)$$
+$$
 
-AI is the first technology in decades that can increase Total Productivity without requiring more work hours by humans. I'm guessin the average MEU for a company isn't much higher than 10-40% and it's been really hard to push that higher:
-- Adding more workers can lower productivity due to the communication complexity (see [Metcalfe's Law](https://en.wikipedia.org/wiki/Metcalfe%27s_law)) and is very expensive
+\text{Total Productivity} = \sum_{i \in \text{Workers}} (\text{work hours}_i \times \text{productivity rate}_i)
+
+$$
+
+AI is the first technology in decades that can **increase Total Productivity without requiring more work hours by humans**. I'm guessin the average MEU for a software company isn't much higher than 20-40%; if you lead an engineering team, a rough way to calculate it is your quarterly tickets throughput as a percentage of your whole backlog. 
+
+It's been really hard to improve on the MEU number historically:
+- Adding more employees and contracts can lower productivity due to the communication complexity (see [Metcalfe's Law](https://en.wikipedia.org/wiki/Metcalfe%27s_law)), and it's also very expensive making it unfeasible for many
 - Work hours and productivity rate are inversely correlated after a certain point, especially for jobs like software engineering.
 
-60-90% of enterprise productivity in the future will likely be delivered by AI:
+60-80% of enterprise productivity in the future will likely be delivered by AI:
 - For a similar work rate, productivity rate will increase by 10x by leveraging **synchronous** products. This includes things like ChatGPT, Github Copilot, Harvey, etc, which allow each worker to do their job more quickly and accurately. The downside of synchronous products is that they have work hours as a limiter of productivity: if the user isn't working, you're not delivering value.
 - As the cost of intelligence trends to zero ([sama's thread](https://x.com/sama/status/1436028668082462748?s=20)), the amount of total productivity in the enterprise will become very elastic, as you'll be able to add AI agents to your Workers pool to achieve specific tasks. These agents will be fully **asynchronous** and will work in parallel to humans with "human-on-the-loop" checkpoints. My partner Dan called this ["Services-as-Software"](https://dannguyenhuu.substack.com/p/a-new-frontier-service-as-software) . Companies in this space include [Dropzone AI](https://dropzone.ai), [Sweep AI](https://sweep.dev/), [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT), etc.
 
