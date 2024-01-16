@@ -1,0 +1,47 @@
+---
+title: From Syntax to Semantics
+date: 2024-01-09
+description: How LLMs are moving software engineering from a syntax-driven world to a semantics-driven one.
+---
+
+**From Syntax to Semantics**
+
+Since the first computer came out, programming the machines to do what you wanted them to required a deep understanding of programming languages. This era of computers has been predominantly about **syntax**, both at a high level (how to design certain algorithms) and at a low level (the actual code to implement it). We spent half a century making this easier: we went from punchcards to COBOL, from C to Python, and from HTML/CSS to JSX and Tailwind.
+
+Software engineering is the bridge between the **semantics** of your business requirements and the **syntax** of your stack. 
+
+Along the way, we started to mix semantics with syntax through libraries. In many modern languages, **you can do things like `.sort` without knowing how to actually implement a sorting algorithm**. The explosion of open source tools also created semantic wrappers around core features of applications: ORMs have removed almost every need for the average engineer to know SQL when building a database-backed application. In Rails, creating a new user in the database is simply `User.create(name: 'Alessio')`.  
+
+Today, 90% of software engineering work is tying all of these abstractions
+together. Your average CRUD application can be built in just a few hours
+leveraging open source. **It seems
+obvious that over time LLMs will make it possible for non-engineers to leverage
+these semantic code functions without any syntax knowledge.**
+
+With a simple description -> code product like Sweep.dev or the likes, a non-technical person should be able to do any of these tasks without ANY software engineering intervention:
+- Make change the style of buttons, fonts on a page, how many columns are in a grid, etc.
+- Make any changes to data visualizations in the app (i.e. use these colors in the bar chart, change to area chart instead of line, change time bound, etc)
+- Change user signup form questions
+- Modify a menu options or copy
+
+*(As a thought experiment, think of what this could enable by letting users make changes to your application UI so that it better fits their needs)*
+
+If you're an engineer, pull up any of the recent sprints you've completed and look how many of your tickets fall into these categories or similar ones. In my experience, the number is at least 10-20%. These are also the tasks that require the most back-and-forth as the engineer is usually just a vessel between semantics and syntax, while the PM / designer is in charge of approving the final change. **Allowing non-technical teams to take ownership of these changes will 1) free up a lot of engineering bandwidth for more complex (and fun!) work 2) remove a ton of communication overhead by minimizing back and forth.** 
+
+Once we tackle these smaller tasks, moving up the stack to more complex features seems like just a matter of time. That all sounds great, but just for fun, let's make a bear case for my own prediction: why will this not happen?
+
+First of all, in large teams we are still figuring out how to easily and safely merge PRs from engineers without creating conflicts. It seems almost impossible to imagine a world in which a lot of non-technical people are proposing code changes without knowing how to resolve conflicts, debug issues with their code if CI fails, etc. Adding more GitOps / code review overhead to the engineering team would defeat the point of trying to save them time.
+
+Most codebases are also messy and are optimized for humans to write syntax, not for LLMs to manipulate them. This usually looks like class hierarcy to abstract common functionalities, extracting modules, monkey patches, moving specific functions to independent microservices, etc. As logic gets spread across files and codebases, it becomes harder and harder for models to intervene. 
+
+I'm also assuming that most models on average will look for the lowest-tokens-amount way to solve problems rather than the easiest to maintain down the line. Unless specifically instructured, a code model will not be looking to make code more DRY, abstracting repetitive methods away in a module, etc. This can lead to more tech debt down the line.
+
+If you have a startup idea to solve any of these three, please get in touch :) I think there are a still a ton of opportunities to change some of the tenants of the developer workflow, starting from git and the folders/files structure of a codebase. 
+
+
+
+
+
+
+
+
