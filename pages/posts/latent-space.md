@@ -87,7 +87,7 @@ Most people said Midjourney and Eleuther AI to the first two, so we knew that wa
 We then evolved it to this:
 
 * **Acceleration**: What has already happened in AI that you thought would take much longer?
-* **Exploration: **What are the most interesting unsolved questions in AI?
+* **Exploration:** What are the most interesting unsolved questions in AI?
 * **Takeaway**: What’s one message you want everyone to remember today?
 
 We used this most of the year actually, and it got some good responses, but the Acceleration question usually related to something the guest was building, so it was already covered, and the Exploration one wasn’t as deep as people are usually very focused in their domain.
