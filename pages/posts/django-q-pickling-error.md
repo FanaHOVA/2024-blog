@@ -1,7 +1,7 @@
 ---
 title: How AI wasted half my day with the wrong decorator
 date: 2024-04-02
-description: Or, for future "self StackOverlow" purposes: how to fix PicklingError: Can't pickle <function name>: attribute lookup failed
+description: Or, for future "self StackOverlow" purposes, how to fix PicklingError Can't pickle <function name> attribute lookup failed
 ---
 
 After a decade of coding in Ruby, the AI wave made me cave in to switching to Python, as most tools don't have Ruby bindings. Luckily, it's super easy to pickup a new language and framework thanks to LLMs. You can ask them "what's the Python equivalent of Ruby's XYZ" and it will usually give a good answer. I also use [Cursor](https://cursor.sh/) as my editor, and their multi-line Copilot is super helpful when learning.
