@@ -1,0 +1,23 @@
+pages/posts/startups-are-context-arbitrages.md
+  5e834181d49c3d94 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "24a34c3c5b7966e4164396541ed9cd2f1184c6e6",
+  "prompts": {
+    "5e834181d49c3d94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc8e446e-98f2-4fdf-9614-f0c56a20b355",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 29,
+      "total_deletions": 31,
+      "accepted_lines": 23,
+      "overriden_lines": 0
+    }
+  }
+}
