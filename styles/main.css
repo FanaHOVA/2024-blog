@@ -63,3 +63,48 @@ img.next-image {
 .nav-line .nav-link {
   color: #69778c;
 }
+
+/* Inspiration Gallery Styles */
+.inspiration-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.inspiration-gallery .next-image {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.inspiration-gallery .next-image:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.image-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.image-row .half-width {
+  flex: 1;
+  max-width: calc(50% - 0.5rem);
+}
+
+@media (max-width: 768px) {
+  .inspiration-gallery {
+    gap: 1.5rem;
+  }
+  
+  .image-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .image-row .half-width {
+    max-width: 100%;
+  }
+}
