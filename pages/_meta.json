@@ -1,0 +1,18 @@
+{
+  "index": {
+    "title": "Blog",
+    "type": "posts"
+  },
+  "about": {
+    "title": "About"
+  },
+  "inspiration": {
+    "title": "Inspiration"
+  },
+  "tags": {
+    "display": "hidden"
+  },
+  "posts": {
+    "display": "hidden"
+  }
+}
