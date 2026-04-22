@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets'
+import Base from '../layouts/Base.astro'
+import kobeMj from '../assets/inspiration/kobe-mj.jpeg'
+import asr3 from '../assets/inspiration/asr3.jpeg'
+import kobeLeft from '../assets/inspiration/kobe-left.jpeg'
+import spaceTesla from '../assets/inspiration/space-tesla.avif'
+import jobsGates from '../assets/inspiration/jobs-gates.webp'
+import swatt from '../assets/inspiration/swatt.jpeg'
+import dante from '../assets/inspiration/dante.jpeg'
+import lotr1 from '../assets/inspiration/lotr1.jpeg'
+import rd from '../assets/inspiration/rd.jpg'
+import fermi from '../assets/inspiration/fermi.webp'
+
+const wide = '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw'
+const half = '(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw'
+---
+
+<Base title="Inspiration" description="A collection of all sort of things that inspire me.">
+  <article class="prose">
+    <h1>Inspiration</h1>
+    <p>A collection of all sort of things that inspire me, ranging from books, movies, music, games, and more. It's usually less about the artifact, and more about the story behind it.</p>
+
+    <div class="inspiration-gallery">
+      <Image src={kobeMj} alt="Kobe Bryant and Michael Jordan" widths={[400, 800, 1200]} sizes={wide} loading="eager" />
+      <Image src={asr3} alt="ASR inspiration" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+      <Image src={kobeLeft} alt="Kobe Bryant" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+      <Image src={spaceTesla} alt="Tesla in space" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+      <Image src={jobsGates} alt="Steve Jobs and Bill Gates" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+      <Image src={swatt} alt="Swatt inspiration" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+      <Image src={dante} alt="Dante" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+
+      <div class="image-row">
+        <Image class="half-width" src={lotr1} alt="Lord of the Rings" widths={[300, 600]} sizes={half} loading="lazy" />
+        <Image class="half-width" src={rd} alt="RD inspiration" widths={[300, 600]} sizes={half} loading="lazy" />
+      </div>
+
+      <Image src={fermi} alt="Fermi" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
+    </div>
+  </article>
+</Base>

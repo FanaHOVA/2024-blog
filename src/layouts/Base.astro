@@ -1,0 +1,83 @@
+---
+import '../styles/global.css'
+import ThemeToggle from '../components/ThemeToggle.astro'
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+}
+
+const { title, description, image } = Astro.props
+const siteName = "Alessio Fanelli's blog"
+const pageTitle = title ? `${title} — Alessio Fanelli` : siteName
+const pageDesc = description ?? siteName
+
+const ogImage = image ?? (title
+  ? `https://dynamic-og-image-generator.vercel.app/api/generate?title=${encodeURIComponent(title)}&author=Alessio%20Fanelli&avatar=https://pbs.twimg.com/profile_images/1588566693088927744/11P6gQdW_400x400.jpg&websiteUrl=alessiofanelli.com&theme=dracula`
+  : undefined)
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString()
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="follow, index" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title ?? siteName} />
+    <meta property="og:description" content={pageDesc} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@fanahova" />
+    <meta name="twitter:title" content={title ?? siteName} />
+    <meta name="twitter:description" content={pageDesc} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme')
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const theme = stored || (prefersDark ? 'dark' : 'light')
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch { document.documentElement.setAttribute('data-theme', 'light') }
+      })()
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="site">
+        <a class="home" href="/">Alessio Fanelli</a>
+        <nav class="site">
+          <a href="/">Blog</a>
+          <a href="/about">About</a>
+          <a href="/inspiration">Inspiration</a>
+          <ThemeToggle />
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site">
+        <span>© {new Date().getFullYear()} Alessio Fanelli.</span>
+        <a href="/feed.xml">RSS</a>
+      </footer>
+    </div>
+  </body>
+</html>
