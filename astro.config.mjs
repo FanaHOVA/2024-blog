@@ -7,6 +7,10 @@ import rehypeKatex from 'rehype-katex'
 export default defineConfig({
   site: 'https://alessiofanelli.com',
   integrations: [mdx(), sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover'
+  },
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
