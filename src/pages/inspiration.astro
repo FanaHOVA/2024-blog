@@ -12,30 +12,183 @@ import lotr1 from '../assets/inspiration/lotr1.jpeg'
 import rd from '../assets/inspiration/rd.jpg'
 import fermi from '../assets/inspiration/fermi.webp'
 
-const wide = '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw'
-const half = '(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw'
+const items = [
+  { src: kobeMj,     alt: 'Kobe Bryant and Michael Jordan', span: 'hero' },
+  { src: asr3,       alt: 'ASR',                            span: 'tall' },
+  { src: kobeLeft,   alt: 'Kobe Bryant',                    span: 'tall' },
+  { src: spaceTesla, alt: 'Roadster in orbit',              span: 'square' },
+  { src: jobsGates,  alt: 'Jobs & Gates',                   span: 'wide' },
+  { src: swatt,      alt: 'Swatt',                          span: 'square' },
+  { src: dante,      alt: 'Dante',                          span: 'hero' },
+  { src: lotr1,      alt: 'The Fellowship',                 span: 'square' },
+  { src: rd,         alt: 'RD',                             span: 'square' },
+  { src: fermi,      alt: 'Fermi',                          span: 'wide' }
+]
+
+const sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px'
 ---
 
-<Base title="Inspiration" description="A collection of all sort of things that inspire me.">
-  <article class="prose">
+<Base title="Inspiration" description="A collection of things that inspire me.">
+  <section class="inspiration-intro">
     <h1>Inspiration</h1>
-    <p>A collection of all sort of things that inspire me, ranging from books, movies, music, games, and more. It's usually less about the artifact, and more about the story behind it.</p>
+    <p>A corkboard of things that have gotten under my skin — books, movies, images, moments. Usually less about the artifact, more about the story behind it.</p>
+  </section>
 
-    <div class="inspiration-gallery">
-      <Image src={kobeMj} alt="Kobe Bryant and Michael Jordan" widths={[400, 800, 1200]} sizes={wide} loading="eager" />
-      <Image src={asr3} alt="ASR inspiration" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-      <Image src={kobeLeft} alt="Kobe Bryant" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-      <Image src={spaceTesla} alt="Tesla in space" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-      <Image src={jobsGates} alt="Steve Jobs and Bill Gates" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-      <Image src={swatt} alt="Swatt inspiration" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-      <Image src={dante} alt="Dante" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-
-      <div class="image-row">
-        <Image class="half-width" src={lotr1} alt="Lord of the Rings" widths={[300, 600]} sizes={half} loading="lazy" />
-        <Image class="half-width" src={rd} alt="RD inspiration" widths={[300, 600]} sizes={half} loading="lazy" />
-      </div>
-
-      <Image src={fermi} alt="Fermi" widths={[400, 800, 1200]} sizes={wide} loading="lazy" />
-    </div>
-  </article>
+  <div class="bento">
+    {items.map((item) => (
+      <figure class={`cell cell-${item.span}`}>
+        <Image src={item.src} alt={item.alt} widths={[400, 800, 1200]} sizes={sizes} loading="lazy" />
+        <figcaption>{item.alt}</figcaption>
+      </figure>
+    ))}
+  </div>
 </Base>
+
+<style>
+  .inspiration-intro {
+    padding: 3rem 0 2.5rem;
+    max-width: 560px;
+  }
+  .inspiration-intro h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-variation-settings: 'wght' 850;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0 0 1rem;
+    background: linear-gradient(135deg, var(--text) 0%, var(--accent) 140%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .inspiration-intro p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
+    grid-auto-flow: dense;
+    gap: 10px;
+    margin: 2rem 0 4rem;
+    width: min(1200px, calc(100vw - 2.5rem));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cell {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--code-bg);
+    transform: translateZ(0);
+    transition: transform 0.4s cubic-bezier(.2, .8, .2, 1),
+                box-shadow 0.4s cubic-bezier(.2, .8, .2, 1);
+  }
+  .cell :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+    margin: 0;
+    transition: transform 0.7s cubic-bezier(.2, .8, .2, 1),
+                filter 0.4s ease;
+    will-change: transform;
+  }
+  .cell figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 2rem 1rem 0.9rem;
+    color: white;
+    font-size: 0.85rem;
+    font-variation-settings: 'wght' 550;
+    letter-spacing: -0.01em;
+    background: linear-gradient(to top,
+      rgba(0,0,0,0.9) 0%,
+      rgba(0,0,0,0.55) 55%,
+      rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .cell-hero   { grid-column: span 2; grid-row: span 3; }
+  .cell-wide   { grid-column: span 2; grid-row: span 2; }
+  .cell-tall   { grid-column: span 1; grid-row: span 3; }
+  .cell-square { grid-column: span 1; grid-row: span 2; }
+
+  @media (hover: hover) {
+    .cell:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 20px 40px -12px rgba(0,0,0,0.25),
+        0 0 0 1px rgba(255,255,255,0.06);
+      z-index: 2;
+    }
+    .cell:hover :global(img) {
+      transform: scale(1.06);
+      filter: brightness(0.92);
+    }
+    .cell:hover figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (hover: none) {
+    .cell figcaption {
+      opacity: 1;
+      transform: translateY(0);
+      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0) 80%);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .cell {
+        animation: cell-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 20%;
+      }
+      @keyframes cell-in {
+        from { opacity: 0; transform: translateY(24px) scale(0.97); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .bento {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 130px;
+    }
+    .cell-hero   { grid-column: span 2; grid-row: span 3; }
+    .cell-wide   { grid-column: span 2; grid-row: span 2; }
+    .cell-tall   { grid-column: span 1; grid-row: span 3; }
+    .cell-square { grid-column: span 1; grid-row: span 2; }
+  }
+
+  @media (max-width: 520px) {
+    .bento {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      gap: 14px;
+    }
+    .cell,
+    .cell-hero,
+    .cell-wide,
+    .cell-tall,
+    .cell-square {
+      grid-column: auto;
+      grid-row: auto;
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
