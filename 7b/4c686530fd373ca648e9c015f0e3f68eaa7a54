@@ -1,0 +1,23 @@
+src/pages/inspiration.astro
+  2741e602775bccf3 15,17-26,29,35,38,40-41,71-73,78,81-84,86,92-93,95,98-99,102-103,106,112-114,116,122,125-126,129-130,132,139,142,148-149,151,153-155,161-163,168-169
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "7b4c686530fd373ca648e9c015f0e3f68eaa7a54",
+  "prompts": {
+    "2741e602775bccf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "afbd2ae1-d94c-4b95-85e1-9caf5450bc68",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 56,
+      "total_deletions": 78,
+      "accepted_lines": 1711,
+      "overriden_lines": 0
+    }
+  }
+}
