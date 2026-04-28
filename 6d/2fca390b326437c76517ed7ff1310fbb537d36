@@ -1,0 +1,69 @@
+src/components/ThemeToggle.astro
+  f5992ea3e4ceed8d 4-17,21,24-25
+src/pages/inspiration.astro
+  28b2ff76fa14be65 33,35-36,39,44-47,49-53,194-196,199-200,202-205,207-216,218-222,224-225,228,232,235-237,239-240,244-246,248-251,253-258,260,279-280,283-289,292-295,299,301,304-312,315-316,319-320,322-325,327-331,333-344,346-360,364,367-370,374-383,385-386,388-390,394-397,400-403,408-418,420-423,497,502,504-507,509-535,539-540,542-544,546-549,551,553-555,557-575,578-598
+  64c9f3fecd6e17b0 16-25,28-29,38,54,61,65,88,92,169-170,172-175,181,197-198,206,230-231,238,241-243,252,261-264,266-270,273-276,281-282,290-291,296-298,300,326,365-366,371-373,398,404,441-442,451,457-459,471-482,487,491,498-501,503,508,541,545,552,556
+  be9a14963f39fe54 34,37,40
+  f5992ea3e4ceed8d 55-58,63-64,66-67,69-72,75-85,89-91,93-124,127-166,171,176-180,183,185-188,426-427,429-431,433-437,439-440,443-445,447-450,452-456,460-467,470,484-485,488-489,492-494
+src/styles/global.css
+  28b2ff76fa14be65 79-80,95-102,181-192
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "6d2fca390b326437c76517ed7ff1310fbb537d36",
+  "prompts": {
+    "28b2ff76fa14be65": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbbe2-b4b5-7281-a6de-9a2c0a485ef4",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 7030,
+      "total_deletions": 1079,
+      "accepted_lines": 3201,
+      "overriden_lines": 0
+    },
+    "64c9f3fecd6e17b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9ed01bf3-1c6d-477a-b3fc-8ed51de52e25",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 225,
+      "total_deletions": 327,
+      "accepted_lines": 113,
+      "overriden_lines": 0
+    },
+    "be9a14963f39fe54": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbd1e-7c1b-7b62-9770-c7d9f7f6655d",
+        "model": "unknown"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 67,
+      "total_deletions": 27,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "f5992ea3e4ceed8d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12447357-1e4d-490a-b179-64bc3ebf46e7",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 290,
+      "total_deletions": 173,
+      "accepted_lines": 181,
+      "overriden_lines": 0
+    }
+  }
+}
