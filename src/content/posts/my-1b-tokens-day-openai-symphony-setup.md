@@ -6,7 +6,13 @@ description: How I run OpenAI Symphony 24/7 on Zo Computer with Linear, project 
 
 I have been getting some good mileage out of Symphony recently, and particularly like the Linear-only interface. Some friends asked me for how I set it up, and figured I'd share publicly.
 
+![OpenAI Symphony setup hero](/images/symphony-setup-hero.jpeg)
+
 TLDR: I have set up the Elixir Symphony implementation on my [Zo Computer](https://x.com/zocomputer) so that it runs 24/7. I had GLM-5.1 create a better dashboard to monitor it (gotta let the open models have some fun too!), and added a couple more Linear statuses for working with the model.
+
+![Symphony on Zo workflow diagram](/images/symphony-on-zo.jpeg)
+
+_Designed by Opus, prettified by ChatGPT Images 2._
 
 I'll break down each part:
 
@@ -17,6 +23,8 @@ If you are not familiar with [Zo Computer](https://x.com/zocomputer), you can th
 I created two skills, a [`symphony-setup`](https://gist.github.com/FanaHOVA/0c3bd731c5bbba15eb28c5dc784241d4) and a `project-cto` one to manage Linear and the tasks roadmap. Now whenever I want to setup a new project with Symphony, I can just text Zo the repo URL and ask it to. The CTO skill will then setup the Linear project, labels, etc and keep track of issues moving through it. This skill then lets me text Zo and ask for updates and make changes.
 
 There is a single Symphony daemon on the machine, which manages many projects with this structure:
+
+![Symphony workspace structure](/images/symphony-workspace-structure.png)
 
 ```text
 /home/workspace/symphony/elixir              # Shared Symphony runtime (single clone)
@@ -42,13 +50,19 @@ In Linear there is a project which Symphony polls from. I have created specific 
 
 Codex has a Workpad comment in each Linear issue which you can use to track its progress.
 
+![Codex Workpad comment in Linear](/images/symphony-workpad.jpeg)
+
 It also adds a PR comment for every commit, which lets you follow it play by play.
+
+![Codex PR commit comment](/images/symphony-pr-comment.jpeg)
 
 ## Tokens dashboard
 
 I have asked Qwen and GLM-5.1 (shoutout [Wafer.ai](https://wafer.ai/)) to build a custom dashboard to monitor usage per task, which is also hosted on Zo.
 
 One of the things we are building towards at [Kernel Labs](https://x.com/KernelLabs_ai) is the ability to price software creation, and having token usage per task is really helpful to both benchmark different models, as well as measuring impact of better tooling and instructions.
+
+![Symphony token dashboard](/images/symphony-token-dashboard.jpeg)
 
 That's it :) If this is the type of stuff that gets you excited and are building in this space, we have a [Grants program](https://kernellabs.ai/grants), or just [come to one of our events](https://kernellabs.ai/community) at Kernel!
 
