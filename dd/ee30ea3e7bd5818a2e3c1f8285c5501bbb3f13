@@ -1,0 +1,36 @@
+src/content/posts/my-1b-tokens-day-openai-symphony-setup.md
+  8a7cabe6b3731dbb 1-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "ddee30ea3e7bd5818a2e3c1f8285c5501bbb3f13",
+  "prompts": {
+    "8a7cabe6b3731dbb": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019df3b3-47f0-7ae2-8032-b22ed0f1b422",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 55,
+      "total_deletions": 0,
+      "accepted_lines": 55,
+      "overriden_lines": 0
+    },
+    "f5992ea3e4ceed8d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12447357-1e4d-490a-b179-64bc3ebf46e7",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 380,
+      "total_deletions": 0,
+      "accepted_lines": 380,
+      "overriden_lines": 0
+    }
+  }
+}
