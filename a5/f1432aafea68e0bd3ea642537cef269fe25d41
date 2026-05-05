@@ -1,0 +1,23 @@
+src/pages/inspiration.astro
+  450bf6c5abea397d 14,24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "a5f1432aafea68e0bd3ea642537cef269fe25d41",
+  "prompts": {
+    "450bf6c5abea397d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dfa82-9215-77a3-b4d6-b6a5f170d103",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Alessio Fanelli",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
