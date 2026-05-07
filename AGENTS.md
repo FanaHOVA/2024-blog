@@ -4,7 +4,7 @@ Personal blog. **Performance is a feature.** The site was migrated from Next.js 
 
 ## Stack
 
-- Astro 5 (static output)
+- Astro 6 (static output)
 - MDX via `@astrojs/mdx`
 - RSS via `@astrojs/rss`
 - Sitemap via `@astrojs/sitemap`
@@ -12,6 +12,8 @@ Personal blog. **Performance is a feature.** The site was migrated from Next.js 
 - `sharp` for image optimization (runs at build time)
 
 No React. No Next. No Nextra. No Tailwind. No UI library.
+
+Security note: if a React or Next.js advisory appears, first verify that neither `package.json` nor `package-lock.json` contains `react`, `react-server-dom-*`, `next`, or Nextra packages. This Astro build is intentionally outside the React Server Components and Next.js attack surface described in Cloudflare's 2026-05 React/Next.js vulnerability advisory; do not add React/Next as a mitigation workaround.
 
 ## Directory layout
 
@@ -44,7 +46,7 @@ package.json
 ## Rules for changes
 
 1. **No client JavaScript unless you can justify it.** If you're tempted to add a framework, interactive component, or analytics SDK, ask first. The current two `<script is:inline>` blocks (theme init in `Base.astro`, toggle in `ThemeToggle.astro`) are deliberately the only JS that runs in the browser. A React island would single-handedly undo the performance win.
-2. **No new dependencies unless required.** Runtime deps are `astro`, `@astrojs/mdx`, `@astrojs/rss`, `@astrojs/sitemap`, `rehype-katex`, `remark-math`, `sharp`. That's the whole list. Before adding anything else, see if Astro already does it.
+2. **No new dependencies unless required.** Runtime deps are `astro`, `@astrojs/mdx`, `@astrojs/rss`, `@astrojs/sitemap`, `rehype-katex`, `remark-math`, `sharp`. That's the whole list. Keep Astro and its integrations on patched current versions; before adding anything else, see if Astro already does it.
 3. **No Tailwind, no CSS-in-JS.** `src/styles/global.css` is ~200 lines of plain CSS with CSS custom properties for theming. Add styles there, not via a framework.
 4. **Preserve URLs.** `/`, `/about/`, `/inspiration/`, `/posts/<slug>/`, `/feed.xml` all must keep working — they're linked externally and in RSS readers.
 5. **Dark mode is `data-theme` on `<html>`.** Do not replace with `class="dark"` or any other scheme — the inline IIFE in `Base.astro` runs before paint specifically to prevent a flash, and the CSS selectors in `global.css` depend on this attribute.
@@ -66,6 +68,7 @@ package.json
 ## Verification before committing
 
 ```bash
+npm audit --omit=dev # must report 0 vulnerabilities
 npm run build        # must complete without errors; expect ~30 pages
 npm run preview      # open http://localhost:4321
 ```
